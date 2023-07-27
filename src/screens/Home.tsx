@@ -1,9 +1,13 @@
 import React, { useEffect, useState} from 'react';
+
 import { Center, HStack, Icon, IconButton,ScrollView, Text, VStack, useTheme, useToast, FlatList} from 'native-base';
+
 import { Button } from '../Components/Button';
 import { ChatTeardropText, PlusCircle, UserCircle} from 'phosphor-react-native';
+
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
+
 import { Loading } from '../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
 import { Product } from '../Components/Product';
@@ -24,7 +28,6 @@ export function Home() {
     .collection('userData')
     .where('userId', '==', currentUser)
     .onSnapshot(snapshot => {
-      console.log(snapshot.docs) 
       const data = snapshot.docs.map(doc => {
         const {perfil} = doc.data()
 
@@ -39,7 +42,6 @@ export function Home() {
     firestore()
     .collection('Produto')
     .onSnapshot(snapshot => {
-      console.log(snapshot.docs)
       const data = snapshot.docs.map(doc => {
         const {Categoria, Nome, Preco, Unidade} = doc.data()
 

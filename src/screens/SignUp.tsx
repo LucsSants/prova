@@ -54,7 +54,6 @@ export function SignUp() {
     }
     auth().createUserWithEmailAndPassword(email, password)
     .then(result =>{ 
-      console.log(result.user.uid)
 
       firestore()
       .collection('userData')

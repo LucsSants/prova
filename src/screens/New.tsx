@@ -41,7 +41,6 @@ export function New() {
           Unidade: Number(amount)
         })
         .then(()=> {
-          console.log("user data cadastro")
           setIsLoading(false)
         })
         .catch((error) => {
